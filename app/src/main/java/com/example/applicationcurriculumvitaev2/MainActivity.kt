@@ -1,9 +1,13 @@
 package com.example.applicationcurriculumvitaev2
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.widget.Button
+import android.widget.RadioButton
+import android.widget.RadioGroup
 import android.widget.TextView
 import androidx.core.widget.doOnTextChanged
 import com.google.android.material.textfield.TextInputEditText
@@ -20,33 +24,61 @@ class MainActivity : AppCompatActivity() {
         val outlineEmail= findViewById<TextInputLayout>(R.id.outlined_email)
         val age = findViewById<TextView>(R.id.ageInput)
         val outlineAge= findViewById<TextInputLayout>(R.id.outlined_age)
+        val next= findViewById<Button>(R.id.next)
+        val male= findViewById<RadioButton>(R.id.genre_homme)
+        val female= findViewById<RadioButton>(R.id.genre_femme)
+        val GenderGroup = findViewById<RadioGroup>(R.id.GenderGroup)
+        val groupe = GenderGroup.checkedRadioButtonId
+        val FM= findViewById<RadioButton>(groupe)
 
         name.doOnTextChanged { text, start, before, count ->
             if(text!!.isEmpty()){
                 outlineName.error="Must not be empty!"
+                next.isEnabled=false
             }
             else{
                 outlineName.error=null
+                next.isEnabled=true
             }
         }
         email.doOnTextChanged { text, start, before, count ->
             if(text!!.isEmpty()){
                 outlineEmail.error="Must not be empty!"
+                next.isEnabled=false
             }
             else{
                 outlineEmail.error=null
+                next.isEnabled=true
             }
         }
         age.doOnTextChanged { text, start, before, count ->
             if(text!!.isEmpty()){
                 outlineAge.error="Must not be empty!"
+                next.isEnabled=false
             }
             else if (text.length >= 3){
                 outlineAge.error="Age is wrong!"
+                next.isEnabled=false
             }
             else{
                 outlineAge.error=null
+                next.isEnabled=true
             }
+        }
+
+        next.setOnClickListener {
+            val fullname= name.text.toString()
+            val ageV2= age.text.toString()
+            val mail = email.text.toString()
+            val genre= FM.text.toString()
+
+            val intent = Intent(this,SkillHobbiesActivity::class.java)
+            intent.putExtra("Name",fullname)
+            intent.putExtra("Email",mail)
+            intent.putExtra("Age",ageV2)
+            intent.putExtra("Gender",genre)
+            startActivity(intent)
+
         }
 
     }

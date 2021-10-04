@@ -10,21 +10,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ApplicationCurriculumVitaeV2.NoActionBar">
         <activity
+            android:name=".ResultActivity"
+            android:exported="true" />
+        <activity
+            android:name=".SkillHobbiesActivity"
+            android:exported="true" />
+        <activity
             android:name=".SplashScreenActivity"
             android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
-            android:theme="@style/Theme.ApplicationCurriculumVitaeV2"
-            android:label="Create your resume"
             android:name=".MainActivity"
-            android:exported="true"/>
-
-
+            android:exported="true"
+            android:label="Create your resume"
+            android:theme="@style/Theme.ApplicationCurriculumVitaeV2" />
     </application>
 
 </manifest>

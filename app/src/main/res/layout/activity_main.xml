@@ -152,7 +152,7 @@
             android:textStyle="bold" />
 
         <RadioGroup
-            android:id="@+id/radioGroup"
+            android:id="@+id/GenderGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/Gender"
@@ -160,7 +160,7 @@
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/radioButton2"
+                android:id="@+id/genre_homme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="64dp"
@@ -170,7 +170,7 @@
                 android:textColor="@color/colorPrimary" />
 
             <RadioButton
-                android:id="@+id/radioButton"
+                android:id="@+id/genre_femme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
