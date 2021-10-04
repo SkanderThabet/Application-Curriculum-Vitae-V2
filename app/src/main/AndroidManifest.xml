@@ -19,6 +19,8 @@
         </intent-filter>
         </activity>
         <activity
+            android:theme="@style/Theme.ApplicationCurriculumVitaeV2"
+            android:label="Create your resume"
             android:name=".MainActivity"
             android:exported="true"/>
 
