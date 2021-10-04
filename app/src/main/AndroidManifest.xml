@@ -11,10 +11,16 @@
         android:theme="@style/Theme.ApplicationCurriculumVitaeV2.NoActionBar">
         <activity
             android:name=".ResultActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:label="Your Resume"
+            android:theme="@style/Theme.ApplicationCurriculumVitaeV2" />
+
         <activity
             android:name=".SkillHobbiesActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:label="Create your resume"
+            android:theme="@style/Theme.ApplicationCurriculumVitaeV2"
+            />
         <activity
             android:name=".SplashScreenActivity"
             android:exported="true">
