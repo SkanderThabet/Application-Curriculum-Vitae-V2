@@ -48,21 +48,22 @@ class MainActivity : AppCompatActivity() {
             }
         }
         email.doOnTextChanged { text, start, before, count ->
-            when {
-                Patterns.EMAIL_ADDRESS.matcher(email.text.toString())
-                    .matches() -> {
-                    next.isEnabled = true
-                }
-                text!!.isEmpty() -> {
-                    outlineEmail.error = "Must not be empty!"
-                    next.isEnabled = false
-                }
-                else -> {
-                    email.setError("Check your mail")
-                    next.isEnabled = !(age.text.isEmpty() && name.text.isEmpty())
+            if (Patterns.EMAIL_ADDRESS.matcher(email.text.toString())
+                    .matches()
+            ) {
+                next.isEnabled = true
+                outlineName.error = null
+            }
+            else if (text!!.isEmpty()) {
+                outlineEmail.error = "Must not be empty!"
+                next.isEnabled=false
+            }
+            else {
+                outlineEmail.error = null
+                email.setError("Check your mail")
+                next.isEnabled = !(age.text.isEmpty() && name.text.isEmpty())
 
 
-                }
             }
         }
         age.doOnTextChanged { text, start, before, count ->
