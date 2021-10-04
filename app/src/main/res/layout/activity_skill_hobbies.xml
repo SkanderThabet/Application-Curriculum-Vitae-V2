@@ -45,7 +45,7 @@
                 android:textStyle="bold" />
 
             <SeekBar
-                android:id="@+id/seekBar"
+                android:id="@+id/seekBar_android"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="64dp"
@@ -65,10 +65,10 @@
                 android:textStyle="bold" />
 
             <SeekBar
-                android:id="@+id/seekBar2"
+                android:id="@+id/seekBar_ios"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/seekBar"
+                android:layout_below="@id/seekBar_android"
                 android:layout_marginStart="64dp"
                 android:layout_marginTop="16dp"
                 android:max="100"
@@ -87,10 +87,10 @@
                 android:textStyle="bold" />
 
             <SeekBar
-                android:id="@+id/seekBar3"
+                android:id="@+id/seekBar_flutter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/seekBar2"
+                android:layout_below="@id/seekBar_ios"
                 android:layout_marginStart="64dp"
                 android:layout_marginTop="16dp"
                 android:max="100"
