@@ -84,7 +84,6 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
             startActivityForResult(intent,3)
         }
-
         next.setOnClickListener {
 
             val fullname = name.text.toString()
@@ -97,10 +96,22 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("Email", mail)
             intent.putExtra("Age", ageV2)
             intent.putExtra("Gender", genre)
+
             startActivity(intent)
 
         }
     }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(resultCode == RESULT_OK && data!=null){
+            val selectedImage: Uri? = data.data
+            val imageView = findViewById<ImageView>(R.id.imageView3)
+            imageView.setImageURI(selectedImage)
+        }
+        else{
+            Toast.makeText(applicationContext, "You haven't picked Image",Toast.LENGTH_LONG).show();
 
+        }
+    }
 
 }
