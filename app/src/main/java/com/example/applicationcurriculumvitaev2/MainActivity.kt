@@ -1,15 +1,15 @@
 package com.example.applicationcurriculumvitaev2
 
 import android.content.Intent
+import android.media.Image
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Patterns
-import android.widget.Button
-import android.widget.RadioButton
-import android.widget.RadioGroup
-import android.widget.TextView
+import android.widget.*
 import androidx.core.widget.doOnTextChanged
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
@@ -31,6 +31,8 @@ class MainActivity : AppCompatActivity() {
         val GenderGroup = findViewById<RadioGroup>(R.id.GenderGroup)
         val groupe = GenderGroup.checkedRadioButtonId
         val FM = findViewById<RadioButton>(groupe)
+
+        val picture = findViewById<ImageView>(R.id.imageView3)
 
         when {
             email.text.isEmpty() -> next.isEnabled = false
@@ -78,6 +80,10 @@ class MainActivity : AppCompatActivity() {
                 next.isEnabled = !(email.text.isEmpty() && name.text.isEmpty())
             }
         }
+        picture.setOnClickListener{
+            val intent = Intent(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+            startActivityForResult(intent,3)
+        }
 
         next.setOnClickListener {
 
@@ -94,6 +100,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
 
         }
-
     }
+
+
 }

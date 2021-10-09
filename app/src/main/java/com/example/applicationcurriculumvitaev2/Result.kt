@@ -24,12 +24,6 @@ private lateinit var textView : TextView
 
     ): View? {
         val view : View = inflater.inflate(R.layout.fragment_result, container, false)
-        textView = view.findViewById<View>(R.id.Name) as TextView
-        val bundle = arguments
-        val message = bundle!!.getString("Name")
-        textView.text=message
-
-
 
         // Inflate the layout for this fragment
         return view

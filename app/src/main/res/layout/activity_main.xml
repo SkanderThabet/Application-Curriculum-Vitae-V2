@@ -20,8 +20,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_account_circle_24"
-        app:tint="@color/colorPrimary" />
+        app:srcCompat="@drawable/ic_baseline_account_circle_24" />
 
     <com.google.android.material.textfield.TextInputLayout
 
