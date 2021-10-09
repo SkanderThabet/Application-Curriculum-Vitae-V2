@@ -1,6 +1,8 @@
 package com.example.applicationcurriculumvitaev2
 
 import android.content.Intent
+import android.graphics.BitmapFactory
+import android.graphics.Picture
 import android.media.Image
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -55,12 +57,10 @@ class MainActivity : AppCompatActivity() {
             ) {
                 next.isEnabled = true
                 outlineName.error = null
-            }
-            else if (text!!.isEmpty()) {
+            } else if (text!!.isEmpty()) {
                 outlineEmail.error = "Must not be empty!"
-                next.isEnabled=false
-            }
-            else {
+                next.isEnabled = false
+            } else {
                 outlineEmail.error = null
                 email.setError("Check your mail")
                 next.isEnabled = !(age.text.isEmpty() && name.text.isEmpty())
@@ -80,9 +80,9 @@ class MainActivity : AppCompatActivity() {
                 next.isEnabled = !(email.text.isEmpty() && name.text.isEmpty())
             }
         }
-        picture.setOnClickListener{
-            val intent = Intent(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-            startActivityForResult(intent,3)
+        picture.setOnClickListener {
+            val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+            startActivityForResult(intent, 3)
         }
         next.setOnClickListener {
 
@@ -101,15 +101,16 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if(resultCode == RESULT_OK && data!=null){
+        if (resultCode == RESULT_OK && data != null) {
             val selectedImage: Uri? = data.data
             val imageView = findViewById<ImageView>(R.id.imageView3)
             imageView.setImageURI(selectedImage)
-        }
-        else{
-            Toast.makeText(applicationContext, "You haven't picked Image",Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(applicationContext, "You haven't picked Image", Toast.LENGTH_LONG)
+                .show();
 
         }
     }
