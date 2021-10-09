@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+//Scrollview pour assurer la comptabilité des composants sur toute l'écran
         val name = findViewById<TextView>(R.id.NameInput)
         val outlineName = findViewById<TextInputLayout>(R.id.outlined_username)
         val email = findViewById<TextView>(R.id.emailInput)

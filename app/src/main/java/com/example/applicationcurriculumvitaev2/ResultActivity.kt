@@ -2,9 +2,16 @@ package com.example.applicationcurriculumvitaev2
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.Button
 import android.widget.TextView
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 
-class ResultActivity : AppCompatActivity() {
+class ResultActivity : AppCompatActivity(){
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
@@ -13,32 +20,47 @@ class ResultActivity : AppCompatActivity() {
         val FullName = intent.getStringExtra("Name")
         val age = intent.getStringExtra("Age")
         val mail = intent.getStringExtra("Email")
-        val gender= intent.getStringExtra("Gender")
-        val androidskill=intent.getStringExtra("Android")
+        val gender = intent.getStringExtra("Gender")
+        val androidskill = intent.getStringExtra("Android")
         val iosSkill = intent.getStringExtra("iOS")
         val flutterskill = intent.getStringExtra("Flutter")
         val language = intent.getStringExtra("Language")
         val hbs = intent.getStringExtra("Hobbies")
+        val btnSkills = findViewById<Button>(R.id.skills)
+        val btnHobbies = findViewById<Button>(R.id.hobbies)
+        val btnLanguage = findViewById<Button>(R.id.language)
 
-        val name= findViewById<TextView>(R.id.Name)
-        val email= findViewById<TextView>(R.id.Email)
-        val yearold= findViewById<TextView>(R.id.yearsold)
-        val genre= findViewById<TextView>(R.id.genre)
-        val android= findViewById<TextView>(R.id.android_skill)
-        val ios= findViewById<TextView>(R.id.iOS_skill)
-        val flutter= findViewById<TextView>(R.id.Flutter_skill)
-        val lang= findViewById<TextView>(R.id.Languages)
-        val hobbies= findViewById<TextView>(R.id.hobbies)
-
-        name.text="Name:$FullName"
-        email.text="Email:$mail"
-        yearold.text="Age:$age"
-        genre.text="Gender:$gender"
-        android.text="AndroidSkill:$androidskill"
-        ios.text="IosSkill:$iosSkill"
-        flutter.text="FlutterSkill:$flutterskill"
-        lang.text="Languages:$language"
-        hobbies.text="Hobbies:$hbs"
+        btnSkills.setOnClickListener {
+            changeFragment(skills(),"")
+        }
+        btnHobbies.setOnClickListener {
+            changeFragment(hobbies(),"")
+        }
+        btnLanguage.setOnClickListener {
+            changeFragment(language(),"")
+        }
 
     }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.mainmenu,menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.info -> changeFragment(Result(),"result")
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun changeFragment(fragment:Fragment,name:String){
+        if(name.isEmpty())
+            supportFragmentManager.beginTransaction().replace(R.id.fragmentContainerView,fragment).commit()
+        else{
+            supportFragmentManager.beginTransaction().replace(R.id.fragmentContainerView,fragment).addToBackStack(name).commit()
+        }
+    }
+
+
+
 }

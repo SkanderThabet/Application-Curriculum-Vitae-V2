@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".skills">
+
+    <RelativeLayout
+        android:id="@+id/fragment_skills_layout"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/background_border">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="170dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="SKILLS"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/textView"
+            android:layout_margin="16dp">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Android"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold" />
+
+            <SeekBar
+                android:id="@+id/seekBar_android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="64dp"
+                android:max="100"
+                android:progressTint="@color/colorPrimary"
+                android:thumbTint="@color/colorPrimary" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textView2"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="iOS"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold" />
+
+            <SeekBar
+                android:id="@+id/seekBar_ios"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/seekBar_android"
+                android:layout_marginStart="64dp"
+                android:layout_marginTop="16dp"
+                android:max="100"
+                android:progressTint="@color/colorPrimary"
+                android:thumbTint="@color/colorPrimary" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textView3"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Flutter"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold" />
+
+            <SeekBar
+                android:id="@+id/seekBar_flutter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/seekBar_ios"
+                android:layout_marginStart="64dp"
+                android:layout_marginTop="16dp"
+                android:max="100"
+                android:progressTint="@color/colorPrimary"
+                android:thumbTint="@color/colorPrimary" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</ScrollView>
