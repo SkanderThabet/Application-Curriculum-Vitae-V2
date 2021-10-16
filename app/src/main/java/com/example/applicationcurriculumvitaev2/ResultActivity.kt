@@ -1,10 +1,12 @@
 package com.example.applicationcurriculumvitaev2
 
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.SeekBar
 import android.widget.TextView
 import androidx.fragment.app.Fragment
@@ -30,11 +32,14 @@ class ResultActivity : AppCompatActivity() {
         val btnHobbies = findViewById<Button>(R.id.hobbies)
         val btnLanguage = findViewById<Button>(R.id.language)
         val username = findViewById<TextView>(R.id.username)
+        val image=findViewById<ImageView>(R.id.imageView5)
         username.text = FullName
         val usermail = findViewById<TextView>(R.id.usermail)
         usermail.text = mail
         val bundle = intent.getBundleExtra("bundle")
         val AndroidSkillBundle = bundle?.getInt("Android")
+        val iOSSkillBundle = bundle?.getInt("iOS")
+        val FlutterSkillBundle = bundle?.getInt("Flutter")
 
         /**
          * Test with println
@@ -43,17 +48,22 @@ class ResultActivity : AppCompatActivity() {
         println("Android skill : ${AndroidSkillBundle}")
 
         /**
-         * Bundle strings
+         * Image bundle consumption
+         *
          */
-        val nameBundle = bundle?.getString("Name")
-        val emailBundle = bundle?.getString("Email")
-        val ageBundle = bundle?.getString("Age")
-        val genderBundle = bundle?.getString("Gender")
+//        val extras = getIntent().extras
+//        val path: Uri = extras?.get("img") as Uri
+//        image.setImageURI(path)
+
+
+        /**
+         * Default Fragment
+         */
+        changeFragment(skills.newInstance(AndroidSkillBundle,iOSSkillBundle,FlutterSkillBundle), "")
 
 
         btnSkills.setOnClickListener {
-            skills.newInstance(80)
-            changeFragment(skills(), "")
+            changeFragment(skills.newInstance(AndroidSkillBundle,iOSSkillBundle,FlutterSkillBundle), "")
         }
         btnHobbies.setOnClickListener {
             changeFragment(hobbies(), "")
@@ -69,14 +79,22 @@ class ResultActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val bundle:Bundle? = Bundle()
+        val bundle=intent.getBundleExtra("bundle")
+
+        /**
+         * Bundle strings
+         */
         val nameBundle = bundle?.getString("Name")
         val emailBundle = bundle?.getString("Email")
         val ageBundle = bundle?.getString("Age")
         val genderBundle = bundle?.getString("Gender")
+
         when (item.itemId) {
             R.id.info -> {
-                changeFragment(Result.newInstance(nameBundle,ageBundle,emailBundle,genderBundle), "")
+                changeFragment(
+                    Result.newInstance(nameBundle, ageBundle, emailBundle, genderBundle),
+                    ""
+                )
             }
         }
         return super.onOptionsItemSelected(item)

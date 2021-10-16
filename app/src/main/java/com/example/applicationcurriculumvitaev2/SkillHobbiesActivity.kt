@@ -1,8 +1,10 @@
 package com.example.applicationcurriculumvitaev2
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Parcelable
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.FrameLayout
@@ -60,6 +62,8 @@ class SkillHobbiesActivity : AppCompatActivity() {
             bundle.putString("Email",mail)
             bundle.putString("Gender",genre)
             bundle.putInt("Android",androidSkill.progress)
+            bundle.putInt("iOS",iosSkill.progress)
+            bundle.putInt("Flutter",flutterSkill.progress)
             intent.putExtra("Android", androidSkill.progress.toString())
             intent.putExtra("iOS", iosSkill.progress.toString())
             intent.putExtra("Flutter", flutterSkill.progress.toString())

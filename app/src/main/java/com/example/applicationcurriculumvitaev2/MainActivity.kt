@@ -112,8 +112,7 @@ class MainActivity : AppCompatActivity() {
             val selectedImage: Uri? = data.data
             val imageView = findViewById<ImageView>(R.id.imageView3)
             imageView.setImageURI(selectedImage)
-            intent.putExtra("img",selectedImage)
-            startActivity(intent)
+
 
         } else {
             next.isEnabled = false
