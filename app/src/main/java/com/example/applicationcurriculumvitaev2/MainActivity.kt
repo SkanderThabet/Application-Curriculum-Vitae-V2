@@ -1,6 +1,7 @@
 package com.example.applicationcurriculumvitaev2
 
 import android.content.Intent
+import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Picture
 import android.media.Image
@@ -13,10 +14,13 @@ import android.text.TextWatcher
 import android.util.Patterns
 import android.widget.*
 import androidx.core.widget.doOnTextChanged
+import androidx.fragment.app.Fragment
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import java.io.ByteArrayOutputStream
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -40,7 +44,6 @@ class MainActivity : AppCompatActivity() {
             email.text.isEmpty() -> next.isEnabled = false
             age.text.isEmpty() -> next.isEnabled = false
             name.text.isEmpty() -> next.isEnabled = false
-
         }
         name.doOnTextChanged { text, start, before, count ->
             if (text!!.isEmpty()) {
@@ -91,28 +94,32 @@ class MainActivity : AppCompatActivity() {
             val mail = email.text.toString()
             val genre = FM.text.toString()
 
+
             val intent = Intent(this, SkillHobbiesActivity::class.java)
             intent.putExtra("Name", fullname)
             intent.putExtra("Email", mail)
             intent.putExtra("Age", ageV2)
             intent.putExtra("Gender", genre)
-
             startActivity(intent)
 
         }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        val next = findViewById<Button>(R.id.next)
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == RESULT_OK && data != null) {
             val selectedImage: Uri? = data.data
             val imageView = findViewById<ImageView>(R.id.imageView3)
             imageView.setImageURI(selectedImage)
+
         } else {
+            next.isEnabled = false
             Toast.makeText(applicationContext, "You haven't picked Image", Toast.LENGTH_LONG)
                 .show();
 
         }
     }
+
 
 }

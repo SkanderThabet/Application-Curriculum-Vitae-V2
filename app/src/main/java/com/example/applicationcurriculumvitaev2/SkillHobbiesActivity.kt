@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.CheckBox
+import android.widget.FrameLayout
 import android.widget.SeekBar
+import androidx.fragment.app.Fragment
 
 class SkillHobbiesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,7 +53,13 @@ class SkillHobbiesActivity : AppCompatActivity() {
                 music.isChecked -> "Music"
                 else -> "None"
             }
+            val bundle=Bundle()
 
+            bundle.putString("Name",name)
+            bundle.putString("Age",age)
+            bundle.putString("Email",mail)
+            bundle.putString("Gender",genre)
+            bundle.putInt("Android",androidSkill.progress)
             intent.putExtra("Android", androidSkill.progress.toString())
             intent.putExtra("iOS", iosSkill.progress.toString())
             intent.putExtra("Flutter", flutterSkill.progress.toString())
@@ -61,6 +69,7 @@ class SkillHobbiesActivity : AppCompatActivity() {
             intent.putExtra("Age", age)
             intent.putExtra("Email", mail)
             intent.putExtra("Gender", genre)
+            intent.putExtra("bundle",bundle)
             startActivity(intent)
         }
     }

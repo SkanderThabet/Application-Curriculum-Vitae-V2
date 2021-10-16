@@ -6,9 +6,11 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.SeekBar
+import android.widget.TextView
 import androidx.fragment.app.Fragment
+import org.w3c.dom.Text
 
-class ResultActivity : AppCompatActivity(){
+class ResultActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,38 +29,68 @@ class ResultActivity : AppCompatActivity(){
         val btnSkills = findViewById<Button>(R.id.skills)
         val btnHobbies = findViewById<Button>(R.id.hobbies)
         val btnLanguage = findViewById<Button>(R.id.language)
+        val username = findViewById<TextView>(R.id.username)
+        username.text = FullName
+        val usermail = findViewById<TextView>(R.id.usermail)
+        usermail.text = mail
+        val bundle = intent.getBundleExtra("bundle")
+        val AndroidSkillBundle = bundle?.getInt("Android")
+
+        /**
+         * Test with println
+         */
+        println("This is bundle: " + (bundle?.getString("Name") ?: "Default"))
+        println("Android skill : ${AndroidSkillBundle}")
+
+        /**
+         * Bundle strings
+         */
+        val nameBundle = bundle?.getString("Name")
+        val emailBundle = bundle?.getString("Email")
+        val ageBundle = bundle?.getString("Age")
+        val genderBundle = bundle?.getString("Gender")
+
+        /**
+         * Result factory method
+         */
+        Result.newInstance(nameBundle,ageBundle,emailBundle,genderBundle)
+        changeFragment(Result(),"")
 
         btnSkills.setOnClickListener {
-            changeFragment(skills(),"")
+            skills.newInstance(80)
+            changeFragment(skills(), "")
         }
         btnHobbies.setOnClickListener {
-            changeFragment(hobbies(),"")
+            changeFragment(hobbies(), "")
         }
         btnLanguage.setOnClickListener {
-            changeFragment(language(),"")
+            changeFragment(language(), "")
         }
-
     }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.mainmenu,menu)
+        menuInflater.inflate(R.menu.mainmenu, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
-            R.id.info -> changeFragment(Result(),"result")
+        when (item.itemId) {
+            R.id.info -> {
+                changeFragment(Result(), "")
+            }
         }
         return super.onOptionsItemSelected(item)
     }
 
-    private fun changeFragment(fragment:Fragment,name:String){
-        if(name.isEmpty())
-            supportFragmentManager.beginTransaction().replace(R.id.fragmentContainerView,fragment).commit()
-        else{
-            supportFragmentManager.beginTransaction().replace(R.id.fragmentContainerView,fragment).addToBackStack(name).commit()
+    private fun changeFragment(fragment: Fragment, name: String) {
+        if (name.isEmpty())
+            supportFragmentManager.beginTransaction().replace(R.id.fragmentContainerView, fragment)
+                .commit()
+        else {
+            supportFragmentManager.beginTransaction().replace(R.id.fragmentContainerView, fragment)
+                .addToBackStack(name).commit()
         }
     }
-
 
 
 }

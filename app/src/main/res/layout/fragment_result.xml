@@ -21,10 +21,10 @@
         app:layout_constraintVertical_bias="0.0">
 
         <TextView
-            android:id="@+id/android_skill"
+            android:id="@+id/email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/genre"
+            android:layout_below="@id/simpletext"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
@@ -37,10 +37,10 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/genre"
+            android:id="@+id/simpletext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/yearsold"
+            android:layout_below="@id/gender"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
@@ -56,22 +56,6 @@
             android:id="@+id/yearsold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/Email"
-            android:layout_centerHorizontal="true"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:gravity="clip_horizontal|center"
-            android:text="and I am a Male"
-            android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/Email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_below="@id/Name"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="16dp"
@@ -80,6 +64,22 @@
             android:layout_marginBottom="16dp"
             android:gravity="clip_horizontal|center"
             android:text="I have 25 years old"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/yearsold"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="clip_horizontal|center"
+            android:text="and I am a Male"
             android:textColor="@color/colorPrimary"
             android:textSize="20sp"
             android:textStyle="bold" />
