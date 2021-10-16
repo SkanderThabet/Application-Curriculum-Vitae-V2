@@ -37,9 +37,7 @@ class Result : Fragment() {
             age_string = it.getString(ARG_AGE)
             mail_string = it.getString(ARG_EMAIL)
             gender_string = it.getString(ARG_Gender)
-//
         }
-
     }
 
     override fun onCreateView(
@@ -66,6 +64,7 @@ class Result : Fragment() {
 
         return v
     }
+
     companion object {
         /**
          * Use this factory method to create a new instance of

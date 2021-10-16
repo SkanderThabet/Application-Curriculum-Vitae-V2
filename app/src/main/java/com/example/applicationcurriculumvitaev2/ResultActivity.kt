@@ -26,7 +26,7 @@ class ResultActivity : AppCompatActivity() {
         val androidskill = intent.getStringExtra("Android")
         val iosSkill = intent.getStringExtra("iOS")
         val flutterskill = intent.getStringExtra("Flutter")
-        val language = intent.getStringExtra("Language")
+        val languages = intent.getStringExtra("Language")
         val hbs = intent.getStringExtra("Hobbies")
         val btnSkills = findViewById<Button>(R.id.skills)
         val btnHobbies = findViewById<Button>(R.id.hobbies)
@@ -37,9 +37,27 @@ class ResultActivity : AppCompatActivity() {
         val usermail = findViewById<TextView>(R.id.usermail)
         usermail.text = mail
         val bundle = intent.getBundleExtra("bundle")
+
+        /**
+         * Skills bundle
+         */
         val AndroidSkillBundle = bundle?.getInt("Android")
         val iOSSkillBundle = bundle?.getInt("iOS")
         val FlutterSkillBundle = bundle?.getInt("Flutter")
+
+        /**
+         * Hobbies bundle
+         */
+        val h_music=bundle?.getBoolean("Music")
+        val h_sport=bundle?.getBoolean("Sport")
+        val h_games=bundle?.getBoolean("Games")
+
+        /**
+         * Languages bundle
+         */
+        val l_arabic=bundle?.getBoolean("Arabic")
+        val l_french=bundle?.getBoolean("French")
+        val l_english=bundle?.getBoolean("English")
 
         /**
          * Test with println
@@ -66,10 +84,10 @@ class ResultActivity : AppCompatActivity() {
             changeFragment(skills.newInstance(AndroidSkillBundle,iOSSkillBundle,FlutterSkillBundle), "")
         }
         btnHobbies.setOnClickListener {
-            changeFragment(hobbies(), "")
+            changeFragment(hobbies.newInstance(h_music,h_sport,h_games), "")
         }
         btnLanguage.setOnClickListener {
-            changeFragment(language(), "")
+            changeFragment(language.newInstance(l_arabic,l_french,l_english), "")
         }
     }
 
