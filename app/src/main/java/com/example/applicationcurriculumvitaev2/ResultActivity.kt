@@ -50,11 +50,6 @@ class ResultActivity : AppCompatActivity() {
         val ageBundle = bundle?.getString("Age")
         val genderBundle = bundle?.getString("Gender")
 
-        /**
-         * Result factory method
-         */
-        Result.newInstance(nameBundle,ageBundle,emailBundle,genderBundle)
-        changeFragment(Result(),"")
 
         btnSkills.setOnClickListener {
             skills.newInstance(80)
@@ -74,9 +69,14 @@ class ResultActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val bundle:Bundle? = Bundle()
+        val nameBundle = bundle?.getString("Name")
+        val emailBundle = bundle?.getString("Email")
+        val ageBundle = bundle?.getString("Age")
+        val genderBundle = bundle?.getString("Gender")
         when (item.itemId) {
             R.id.info -> {
-                changeFragment(Result(), "")
+                changeFragment(Result.newInstance(nameBundle,ageBundle,emailBundle,genderBundle), "")
             }
         }
         return super.onOptionsItemSelected(item)
