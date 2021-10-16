@@ -34,6 +34,9 @@ class language : Fragment() {
         val CB_arabic = view.findViewById<CheckBox>(R.id.checkBox_arabic)
         val CB_french = view.findViewById<CheckBox>(R.id.checkbox_french)
         val CB_english = view.findViewById<CheckBox>(R.id.checkBox_english)
+        /**
+         * Condition to get multiple boxes when checked
+         */
         if (arguments != null) {
             if ((arguments?.getBoolean(ARG_ARABIC) == true) && ((arguments?.getBoolean(ARG_FRENCH) == true)) && (arguments?.getBoolean(
                     ARG_ENGLISH
@@ -49,7 +52,7 @@ class language : Fragment() {
                 CB_english.isChecked = englishstate
             } else if ((arguments?.getBoolean(ARG_ARABIC) == true) && ((arguments?.getBoolean(
                     ARG_FRENCH
-                ) == true) && (arguments?.getBoolean(ARG_ENGLISH))==false)
+                ) == true) && (arguments?.getBoolean(ARG_ENGLISH)) == false)
             ) {
                 true.let {
                     arabicstate = it
@@ -61,37 +64,37 @@ class language : Fragment() {
                 CB_english.isChecked = englishstate
             } else if ((arguments?.getBoolean(ARG_ARABIC) == true) && ((arguments?.getBoolean(
                     ARG_FRENCH
-                ) == false)) && (arguments?.getBoolean(ARG_ENGLISH)==true)
+                ) == false)) && (arguments?.getBoolean(ARG_ENGLISH) == true)
             ) {
                 true.let {
                     arabicstate = it
                     englishstate = it
 
                 }
-                frenchstate= false
+                frenchstate = false
                 CB_arabic.isChecked = arabicstate
                 CB_french.isChecked = frenchstate
                 CB_english.isChecked = englishstate
-            }else if ((arguments?.getBoolean(ARG_ARABIC) == false) && ((arguments?.getBoolean(
+            } else if ((arguments?.getBoolean(ARG_ARABIC) == false) && ((arguments?.getBoolean(
                     ARG_FRENCH
-                ) == true)) && (arguments?.getBoolean(ARG_ENGLISH)==true)
+                ) == true)) && (arguments?.getBoolean(ARG_ENGLISH) == true)
             ) {
                 true.let {
-                    frenchstate= it
+                    frenchstate = it
                     englishstate = it
 
                 }
-                arabicstate= false
+                arabicstate = false
                 CB_arabic.isChecked = arabicstate
                 CB_french.isChecked = frenchstate
                 CB_english.isChecked = englishstate
             } else if (arguments?.getBoolean(ARG_ENGLISH) == true) {
                 englishstate = true
                 CB_english.isChecked = englishstate
-            }else if (arguments?.getBoolean(ARG_ARABIC) == true) {
+            } else if (arguments?.getBoolean(ARG_ARABIC) == true) {
                 arabicstate = true
                 CB_arabic.isChecked = englishstate
-            }else if (arguments?.getBoolean(ARG_FRENCH) == true) {
+            } else if (arguments?.getBoolean(ARG_FRENCH) == true) {
                 frenchstate = true
                 CB_french.isChecked = englishstate
             } else {
@@ -101,6 +104,9 @@ class language : Fragment() {
 
             }
         }
+        /**
+         * Disable checking
+         */
         CB_arabic.setOnTouchListener { _, _ -> true }
         CB_french.setOnTouchListener { _, _ -> true }
         CB_english.setOnTouchListener { _, _ -> true }

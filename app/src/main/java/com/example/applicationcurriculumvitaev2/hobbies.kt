@@ -34,6 +34,9 @@ class hobbies : Fragment() {
         val CB_Music = view.findViewById<CheckBox>(R.id.checkBox_music)
         val CB_Sport = view.findViewById<CheckBox>(R.id.checkBox_sport)
         val CB_Games = view.findViewById<CheckBox>(R.id.checkBox_game)
+        /**
+         * Condition to get multiple boxes when checked
+         */
         if (arguments != null) {
             if ((arguments?.getBoolean(ARG_MUSIC) == true) && ((arguments?.getBoolean(ARG_SPORT) == true)) && (arguments?.getBoolean(
                     ARG_GAMES

@@ -17,8 +17,14 @@ class ResultActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
-
+        /**
+         * Initialize the intent
+         */
         val intent = intent
+
+        /**
+         * Call the vals from the previous intent to get their data
+         */
         val FullName = intent.getStringExtra("Name")
         val age = intent.getStringExtra("Age")
         val mail = intent.getStringExtra("Email")
@@ -28,6 +34,10 @@ class ResultActivity : AppCompatActivity() {
         val flutterskill = intent.getStringExtra("Flutter")
         val languages = intent.getStringExtra("Language")
         val hbs = intent.getStringExtra("Hobbies")
+
+        /**
+         * Calling component's layout
+         */
         val btnSkills = findViewById<Button>(R.id.skills)
         val btnHobbies = findViewById<Button>(R.id.hobbies)
         val btnLanguage = findViewById<Button>(R.id.language)
@@ -36,6 +46,9 @@ class ResultActivity : AppCompatActivity() {
         username.text = FullName
         val usermail = findViewById<TextView>(R.id.usermail)
         usermail.text = mail
+        /**
+         * Calling the bundle from the previous activity passed as intent
+         */
         val bundle = intent.getBundleExtra("bundle")
 
         /**
@@ -79,7 +92,9 @@ class ResultActivity : AppCompatActivity() {
          */
         changeFragment(skills.newInstance(AndroidSkillBundle,iOSSkillBundle,FlutterSkillBundle), "")
 
-
+        /**
+         * Event listeners to change fragments
+         */
         btnSkills.setOnClickListener {
             changeFragment(skills.newInstance(AndroidSkillBundle,iOSSkillBundle,FlutterSkillBundle), "")
         }
