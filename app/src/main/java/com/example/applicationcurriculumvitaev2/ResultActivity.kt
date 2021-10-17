@@ -1,5 +1,6 @@
 package com.example.applicationcurriculumvitaev2
 
+import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -113,6 +114,19 @@ class ResultActivity : AppCompatActivity() {
         }
         btnLanguage.setOnClickListener {
             changeFragment(language.newInstance(l_arabic,l_french,l_english), "")
+        }
+
+        toolbar.setNavigationOnClickListener {
+            startActivity(Intent(this,MainActivity::class.java))
+        }
+
+        /**
+         * Career button event
+         */
+        val careerbtn=findViewById<Button>(R.id.myCareer)
+        careerbtn.setOnClickListener {
+            val intent = Intent(this,CareerActivity::class.java)
+            startActivity(intent)
         }
 
     }
