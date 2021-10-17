@@ -31,6 +31,7 @@ class SkillHobbiesActivity : AppCompatActivity() {
         val age = intent.getStringExtra("Age")
         val mail = intent.getStringExtra("Email")
         val genre = intent.getStringExtra("Gender")
+        val image= intent.getStringExtra("Image")
 
         submit.setOnClickListener {
             val intent = Intent(this, ResultActivity::class.java)
@@ -80,6 +81,7 @@ class SkillHobbiesActivity : AppCompatActivity() {
             intent.putExtra("Email", mail)
             intent.putExtra("Gender", genre)
             intent.putExtra("bundle",bundle)
+            intent.putExtra("Image",image)
             startActivity(intent)
         }
     }

@@ -20,7 +20,7 @@ import com.google.android.material.textfield.TextInputLayout
 import java.io.ByteArrayOutputStream
 
 class MainActivity : AppCompatActivity() {
-
+    private var uri: Uri? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -93,13 +93,13 @@ class MainActivity : AppCompatActivity() {
             val ageV2 = age.text.toString()
             val mail = email.text.toString()
             val genre = FM.text.toString()
-
-
             val intent = Intent(this, SkillHobbiesActivity::class.java)
             intent.putExtra("Name", fullname)
             intent.putExtra("Email", mail)
             intent.putExtra("Age", ageV2)
             intent.putExtra("Gender", genre)
+            intent.putExtra("Image", uri.toString())
+            println("image : " + uri)
             startActivity(intent)
 
         }
@@ -112,7 +112,7 @@ class MainActivity : AppCompatActivity() {
             val selectedImage: Uri? = data.data
             val imageView = findViewById<ImageView>(R.id.imageView3)
             imageView.setImageURI(selectedImage)
-
+            uri = selectedImage
 
         } else {
             next.isEnabled = false

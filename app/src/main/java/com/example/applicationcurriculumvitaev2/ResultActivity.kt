@@ -1,5 +1,6 @@
 package com.example.applicationcurriculumvitaev2
 
+import android.graphics.Bitmap
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -34,6 +35,9 @@ class ResultActivity : AppCompatActivity() {
         val flutterskill = intent.getStringExtra("Flutter")
         val languages = intent.getStringExtra("Language")
         val hbs = intent.getStringExtra("Hobbies")
+        val img = intent.getStringExtra("Image")
+        val fileUri = Uri.parse(img)
+
 
         /**
          * Calling component's layout
@@ -46,6 +50,7 @@ class ResultActivity : AppCompatActivity() {
         username.text = FullName
         val usermail = findViewById<TextView>(R.id.usermail)
         usermail.text = mail
+        image.setImageURI(fileUri)
         /**
          * Calling the bundle from the previous activity passed as intent
          */
