@@ -6,11 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.SeekBar
-import android.widget.TextView
+import android.widget.*
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
+import com.google.android.material.appbar.MaterialToolbar
 import org.w3c.dom.Text
 
 class ResultActivity : AppCompatActivity() {
@@ -22,6 +21,12 @@ class ResultActivity : AppCompatActivity() {
          * Initialize the intent
          */
         val intent = intent
+
+        /**
+         * Initialize the toolbar
+         */
+        val toolbar= findViewById<Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
 
         /**
          * Call the vals from the previous intent to get their data
@@ -109,7 +114,9 @@ class ResultActivity : AppCompatActivity() {
         btnLanguage.setOnClickListener {
             changeFragment(language.newInstance(l_arabic,l_french,l_english), "")
         }
+
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.mainmenu, menu)
