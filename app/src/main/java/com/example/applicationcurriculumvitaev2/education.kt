@@ -34,7 +34,7 @@ class education : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_education, container, false)
+        return inflater.inflate(R.layout.card_education, container, false)
     }
 
     companion object {

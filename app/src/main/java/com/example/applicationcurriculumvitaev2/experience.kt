@@ -34,7 +34,7 @@ class experience : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_experience, container, false)
+        return inflater.inflate(R.layout.card_experience, container, false)
     }
 
     companion object {
