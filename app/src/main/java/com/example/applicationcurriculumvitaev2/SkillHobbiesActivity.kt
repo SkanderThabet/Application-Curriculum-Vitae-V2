@@ -26,6 +26,9 @@ class SkillHobbiesActivity : AppCompatActivity() {
         val games = findViewById<CheckBox>(R.id.checkBox_game)
         val submit = findViewById<Button>(R.id.SUBMIT)
 
+        /**
+         * Recupération des intent a partir de main activity
+         */
         val intent = intent
         val name = intent.getStringExtra("Name")
         val age = intent.getStringExtra("Age")

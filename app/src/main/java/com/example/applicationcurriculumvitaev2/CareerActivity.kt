@@ -9,9 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 
 class CareerActivity : AppCompatActivity() {
 
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_career)
@@ -21,6 +18,7 @@ class CareerActivity : AppCompatActivity() {
         val exp= ExperienceData.genRandomCompanies(10)
         val expAdapter=AdapterExperience(exp)
         val recyclerViewExperience = findViewById<RecyclerView>(R.id.recyclerViewExperience)
+
         recyclerViewExperience.layoutManager=LinearLayoutManager(this)
         recyclerViewExperience.adapter = expAdapter
 
