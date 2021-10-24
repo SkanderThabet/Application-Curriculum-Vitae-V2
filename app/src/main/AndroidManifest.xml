@@ -10,10 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ApplicationCurriculumVitaeV2.NoActionBar">
         <activity
+            android:name=".add_education"
+            android:exported="false" />
+        <activity
+            android:name=".add_experience"
+            android:exported="false" />
+        <activity
             android:name=".CareerActivity"
             android:exported="false"
-            android:theme="@style/Theme.ApplicationCurriculumVitaeV2.NoActionBar"
-            android:label="Your Career"/>
+            android:label="Your Career"
+            android:theme="@style/Theme.ApplicationCurriculumVitaeV2.NoActionBar" />
         <activity
             android:name=".ResultActivity"
             android:exported="true"

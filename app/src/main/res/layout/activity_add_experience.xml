@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    tools:layout_editor_absoluteX="0dp"
-    tools:layout_editor_absoluteY="0dp">
+    tools:context=".add_experience">
 
     <ImageView
         android:id="@+id/imageView3"
@@ -16,11 +14,12 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="131dp"
         android:contentDescription="TODO"
+        app:tint="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_account_circle_24" />
+        app:srcCompat="@drawable/ic_baseline_photo_24" />
 
     <com.google.android.material.textfield.TextInputLayout
 
@@ -32,7 +31,7 @@
         android:layout_marginTop="44dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="15dp"
-        android:hint="FullName"
+        android:hint="Company Name"
         android:textColorHint="@color/colorPrimary"
         app:boxStrokeColor="@color/colorPrimary"
         app:errorEnabled="true"
@@ -42,7 +41,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:startIconDrawable="@drawable/account_baseline_for_input"
+        app:startIconDrawable="@drawable/ic_baseline_business_24"
         app:startIconTint="@color/colorPrimary">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -64,26 +63,55 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="16dp"
-        android:hint="Email"
+        android:hint="Company Address"
         android:textColorHint="@color/colorPrimary"
         app:boxStrokeColor="@color/colorPrimary"
         app:errorEnabled="true"
         app:hintTextColor="@color/colorPrimary"
-        app:layout_constraintBottom_toTopOf="@+id/outlined_date_end"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/outlined_companyname"
-        app:layout_constraintVertical_bias="1.0"
-        app:startIconDrawable="@drawable/ic_baseline_email_24"
+        app:startIconDrawable="@drawable/ic_baseline_add_location_24"
         app:startIconTint="@color/colorPrimary">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/emailInput"
+            android:id="@+id/companyAddressInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textWebEmailAddress"
+            android:textColorHint="@color/colorPrimary" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+
+        android:id="@+id/outlined_date_start"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:hint="Start Date"
+        android:textColorHint="@color/colorPrimary"
+        app:boxStrokeColor="@color/colorPrimary"
+        app:errorEnabled="true"
+        app:hintTextColor="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/outlined_companyaddress"
+        app:startIconDrawable="@drawable/ic_baseline_calendar_today_24"
+        app:startIconTint="@color/colorPrimary">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/startDateInput"
+            android:layout_width="match_parent"
+
+
+            android:layout_height="wrap_content"
+            android:inputType="number"
             android:textColorHint="@color/colorPrimary" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -97,22 +125,23 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="12dp"
-        android:hint="Age"
+        android:layout_marginBottom="32dp"
+        android:hint="End Date"
         android:textColorHint="@color/colorPrimary"
         app:boxStrokeColor="@color/colorPrimary"
         app:errorEnabled="true"
         app:hintTextColor="@color/colorPrimary"
-        app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
+        app:layout_constraintBottom_toTopOf="@+id/save"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/outlined_companyaddress"
+        app:layout_constraintTop_toBottomOf="@+id/outlined_date_start"
+        app:layout_constraintVertical_bias="0.04"
         app:startIconDrawable="@drawable/ic_baseline_calendar_today_24"
         app:startIconTint="@color/colorPrimary">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/ageInput"
+            android:id="@+id/endDateInput"
             android:layout_width="match_parent"
 
 
@@ -121,64 +150,6 @@
             android:textColorHint="@color/colorPrimary" />
 
     </com.google.android.material.textfield.TextInputLayout>
-
-    <RelativeLayout
-        android:id="@+id/relativeLayout"
-        android:layout_width="300dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="116dp"
-        android:background="@drawable/background_border"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/outlined_date_end">
-
-        <TextView
-            android:id="@+id/Gender"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="120dp"
-            android:layout_marginTop="8dp"
-            android:layout_weight="1"
-            android:gravity="clip_horizontal|center"
-            android:text="Gender"
-            android:textColor="@color/colorPrimaryDark"
-            android:textStyle="bold" />
-
-        <RadioGroup
-            android:id="@+id/GenderGroup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/Gender"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/genre_homme"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="64dp"
-                android:layout_marginTop="12dp"
-                android:checked="true"
-                android:text="Male"
-                android:textColor="@color/colorPrimary" />
-
-            <RadioButton
-                android:id="@+id/genre_femme"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="12dp"
-                android:text="Female"
-                android:textColor="@color/colorPrimary" />
-
-        </RadioGroup>
-    </RelativeLayout>
 
     <Button
         android:id="@+id/save"
@@ -191,9 +162,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
-        app:layout_constraintVertical_bias="0.694" />
-
-
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

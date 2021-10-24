@@ -1,23 +1,14 @@
 package com.example.applicationcurriculumvitaev2
 
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.graphics.Picture
-import android.media.Image
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
-import android.text.Editable
-import android.text.TextWatcher
 import android.util.Patterns
 import android.widget.*
 import androidx.core.widget.doOnTextChanged
-import androidx.fragment.app.Fragment
-import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
-import java.io.ByteArrayOutputStream
 
 class MainActivity : AppCompatActivity() {
     private var uri: Uri? = null
@@ -26,12 +17,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 //Scrollview pour assurer la comptabilité des composants sur tout l'écran
         val name = findViewById<TextView>(R.id.NameInput)
-        val outlineName = findViewById<TextInputLayout>(R.id.outlined_username)
+        val outlineName = findViewById<TextInputLayout>(R.id.outlined_companyname)
         val email = findViewById<TextView>(R.id.emailInput)
-        val outlineEmail = findViewById<TextInputLayout>(R.id.outlined_email)
+        val outlineEmail = findViewById<TextInputLayout>(R.id.outlined_companyaddress)
         val age = findViewById<TextView>(R.id.ageInput)
-        val outlineAge = findViewById<TextInputLayout>(R.id.outlined_age)
-        val next = findViewById<Button>(R.id.next)
+        val outlineAge = findViewById<TextInputLayout>(R.id.outlined_date_end)
+        val next = findViewById<Button>(R.id.save)
         val male = findViewById<RadioButton>(R.id.genre_homme)
         val female = findViewById<RadioButton>(R.id.genre_femme)
         val GenderGroup = findViewById<RadioGroup>(R.id.GenderGroup)
@@ -106,7 +97,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        val next = findViewById<Button>(R.id.next)
+        val next = findViewById<Button>(R.id.save)
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == RESULT_OK && data != null) {
             val selectedImage: Uri? = data.data

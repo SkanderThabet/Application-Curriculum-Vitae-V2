@@ -1,10 +1,12 @@
 package com.example.applicationcurriculumvitaev2
 
+import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -38,8 +40,28 @@ class CareerActivity : AppCompatActivity() {
             onBackPressed();
 
         }
+        toolbar.inflateMenu(R.menu.careermenu);
+
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.careermenu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+
+        when (item.itemId) {
+            R.id.addeducation -> {
+
+            }
+            R.id.addexperience -> {
+
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
 
 
 
