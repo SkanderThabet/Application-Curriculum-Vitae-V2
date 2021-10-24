@@ -9,6 +9,13 @@
         android:iconTint="@color/white"
         android:title="About"
         app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/logout"
+        android:icon="@drawable/ic_baseline_exit_to_app_24"
+        android:iconTint="@color/white"
+        android:title="Logout"
+        app:showAsAction="ifRoom"
+        />
 
 
 </menu>
