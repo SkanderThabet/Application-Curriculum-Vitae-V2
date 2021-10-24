@@ -1,20 +1,16 @@
 package com.example.applicationcurriculumvitaev2
 
-import android.widget.ImageView
 import androidx.annotation.DrawableRes
-import java.nio.file.Files.size
-import java.util.*
-import kotlin.collections.ArrayList
 import kotlin.random.Random
 
-data class ExperienceData(
-    val companyname: String,
+data class EducationData
+    (
+    val companyname_ed: String,
     @DrawableRes
-    val companyimage: Int,
-    val companyaddress: String,
-    val companycontent: String,
-    val companystartdate: String,
-    val companyenddate: String
+    val companyimage_ed: Int,
+    val companyaddress_ed: String,
+    val companystartdate_ed: String,
+    val companyenddate_ed: String
 ) {
     companion object {
         @JvmField
@@ -34,17 +30,6 @@ data class ExperienceData(
         )
 
         @JvmField
-        val C_CONTENT = arrayOf(
-            "TEST TEST TEST TEST",
-            "TEST TEST TEST TEST",
-            "TEST TEST TEST TEST",
-            "TEST TEST TEST TEST",
-            "TEST TEST TEST TEST",
-            "TEST TEST TEST TEST",
-            "TEST TEST TEST TEST"
-        )
-
-        @JvmField
         val C_STARTDATE = arrayOf(
             "Today", "19/12/2020", "2021-10-29",
             "2021-11-01",
@@ -61,24 +46,22 @@ data class ExperienceData(
         )
 
         @JvmStatic
-        fun genRandomCompanies(n: Int): ArrayList<ExperienceData> {
-            val experienceArray = ArrayList<ExperienceData>(n)
+        fun genRandomCompanies(n: Int): ArrayList<EducationData> {
+            val educationArray = ArrayList<EducationData>(n)
             for (i in 1..n) {
-                experienceArray.add(
-                    ExperienceData(
+                educationArray.add(
+                    EducationData(
                         C_NAMES[Random.nextInt(C_NAMES.size)],
                         C_IMAGES[Random.nextInt(C_IMAGES.size)],
                         C_ADDRESS[Random.nextInt(C_ADDRESS.size)],
-                        C_CONTENT[Random.nextInt(C_CONTENT.size)],
                         C_STARTDATE[Random.nextInt(C_STARTDATE.size)],
                         C_ENDDATE[Random.nextInt(C_ENDDATE.size)]
                     )
                 )
             }
-            return experienceArray
+            return educationArray
         }
 
 
     }
-
 }

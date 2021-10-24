@@ -7,34 +7,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class AdapterExperience(val experience: ArrayList<ExperienceData>) : RecyclerView.Adapter<AdapterExperience.ViewHolder>() {
+class AdapterExperience(val experience: ArrayList<ExperienceData>) :
+    RecyclerView.Adapter<AdapterExperience.ViewHolder>() {
 
-
-    /**
-     * Array to list all the companies
-     */
-
-//    private val titles = arrayOf("AMAZON", "FACEBOOK", "LINKEDIN", "GOOGLE", "MICROSOFT", "ESPRIT")
-//    private val countries = arrayOf("TUNISIA", "USA")
-//    private val contentExperience = arrayOf(
-//        "Test test test test",
-//        "Test test test test",
-//        "Test test test test",
-//        "Test test test test",
-//        "Test test test test",
-//        "Test test test test",
-//        "Test test test test",
-//        "Test test test test",
-//        "Test test test test"
-//    )
-//    private val images = arrayOf(
-//        R.drawable.ic_logo_esprit,
-//        R.drawable.ic_logo_google,
-//        R.drawable.ic_logo_microsoft,
-//        R.drawable.ic_logo_facebook,
-//        R.drawable.ic_logo_amazon,
-//        R.drawable.ic_logo_linkedin
-//    )
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.card_experience, parent, false)
@@ -46,6 +21,8 @@ class AdapterExperience(val experience: ArrayList<ExperienceData>) : RecyclerVie
         holder.itemContent.text = experience[position].companycontent
         holder.itemCompanyAddress.text = experience[position].companyaddress
         holder.itemImage.setImageResource(experience[position].companyimage)
+        holder.itemStartDate.text = experience[position].companystartdate
+        holder.itemEndDate.text = experience[position].companyenddate
     }
 
     override fun getItemCount(): Int = experience.size
