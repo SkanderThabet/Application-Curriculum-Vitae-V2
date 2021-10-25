@@ -16,20 +16,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 //Scrollview pour assurer la comptabilité des composants sur tout l'écran
-        val name = findViewById<TextView>(R.id.NameInput)
-        val outlineName = findViewById<TextInputLayout>(R.id.outlined_universityname)
+        val name = findViewById<TextView>(R.id.usernameInput)
+        val outlineName = findViewById<TextInputLayout>(R.id.outlined_username)
         val email = findViewById<TextView>(R.id.emailInput)
-        val outlineEmail = findViewById<TextInputLayout>(R.id.outlined_universityaddress)
+        val outlineEmail = findViewById<TextInputLayout>(R.id.outlined_email)
         val age = findViewById<TextView>(R.id.ageInput)
-        val outlineAge = findViewById<TextInputLayout>(R.id.outlined_date_end)
-        val next = findViewById<Button>(R.id.save)
+        val outlineAge = findViewById<TextInputLayout>(R.id.outlined_age)
+        val next = findViewById<Button>(R.id.next)
         val male = findViewById<RadioButton>(R.id.genre_homme)
         val female = findViewById<RadioButton>(R.id.genre_femme)
         val GenderGroup = findViewById<RadioGroup>(R.id.GenderGroup)
         val groupe = GenderGroup.checkedRadioButtonId
         val FM = findViewById<RadioButton>(groupe)
 
-        val picture = findViewById<ImageView>(R.id.imageView3)
+        val picture = findViewById<ImageView>(R.id.useravatar)
 
         when {
             email.text.isEmpty() -> next.isEnabled = false
@@ -97,11 +97,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        val next = findViewById<Button>(R.id.save)
+        val next = findViewById<Button>(R.id.next)
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == RESULT_OK && data != null) {
             val selectedImage: Uri? = data.data
-            val imageView = findViewById<ImageView>(R.id.imageView3)
+            val imageView = findViewById<ImageView>(R.id.useravatar)
             imageView.setImageURI(selectedImage)
             uri = selectedImage
 

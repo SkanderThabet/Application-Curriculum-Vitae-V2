@@ -14,19 +14,19 @@ data class EducationData
 ) {
     companion object {
         @JvmField
-        val C_NAMES = arrayOf("AMAZON", "FACEBOOK", "LINKEDIN", "GOOGLE", "MICROSOFT", "ESPRIT")
+        val C_NAMES = arrayOf("ESPRIT", "CAMBRIDGE", "HARVARD", "MASSACHUSETTS", "OXFORD", "STANFORD")
 
         @JvmField
-        val C_ADDRESS = arrayOf("TUNISIA", "USA")
+        val C_ADDRESS = arrayOf("TUNISIA", "USA","UK")
 
         @JvmField
         val C_IMAGES = arrayOf(
             R.drawable.ic_logo_esprit,
-            R.drawable.ic_logo_google,
-            R.drawable.ic_logo_microsoft,
-            R.drawable.ic_logo_facebook,
-            R.drawable.ic_logo_amazon,
-            R.drawable.ic_logo_linkedin
+            R.drawable.ic_logo_stanford,
+            R.drawable.ic_logo_oxford,
+            R.drawable.ic_logo_harvard,
+            R.drawable.ic_logo_cambridge,
+            R.drawable.ic_logo_massachusetts
         )
 
         @JvmField

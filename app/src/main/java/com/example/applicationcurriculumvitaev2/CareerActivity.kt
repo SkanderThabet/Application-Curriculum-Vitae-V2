@@ -37,6 +37,7 @@ class CareerActivity : AppCompatActivity() {
         }
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar2)
+        setSupportActionBar(toolbar)
         toolbar.setNavigationOnClickListener {
             onBackPressed();
 
@@ -53,18 +54,18 @@ class CareerActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.addeducation -> {
-//                val intent = Intent(this.applicationContext, add_education::class.java)
-//                startActivity(intent)
-                Toast.makeText(this,"Education button clicked",Toast.LENGTH_LONG).show()
-                println("Test eD")
+                val intent = Intent(this.applicationContext, add_education::class.java)
+                startActivity(intent)
+//                Toast.makeText(this,"Education button clicked",Toast.LENGTH_LONG).show()
+//                println("Test eD")
 
                 return true
             }
             R.id.addexperience -> {
-//                val intent = Intent(this, add_experience::class.java)
-//                startActivity(intent)
-                Toast.makeText(this,"Experience button clicked",Toast.LENGTH_LONG).show()
-                println("Test ex")
+                val intent = Intent(this, add_experience::class.java)
+                startActivity(intent)
+//                Toast.makeText(this,"Experience button clicked",Toast.LENGTH_LONG).show()
+//                println("Test ex")
                 return true
             }
         }

@@ -9,7 +9,7 @@
     tools:layout_editor_absoluteY="0dp">
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/useravatar"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginStart="130dp"
@@ -24,7 +24,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
 
-        android:id="@+id/outlined_universityname"
+        android:id="@+id/outlined_username"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -37,16 +37,16 @@
         app:boxStrokeColor="@color/colorPrimary"
         app:errorEnabled="true"
         app:hintTextColor="@color/colorPrimary"
-        app:layout_constraintBottom_toTopOf="@+id/outlined_universityaddress"
+        app:layout_constraintBottom_toTopOf="@+id/outlined_email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/useravatar"
         app:startIconDrawable="@drawable/account_baseline_for_input"
         app:startIconTint="@color/colorPrimary">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/NameInput"
+            android:id="@+id/usernameInput"
             android:layout_width="match_parent"
 
 
@@ -57,7 +57,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
 
-        android:id="@+id/outlined_universityaddress"
+        android:id="@+id/outlined_email"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -70,11 +70,11 @@
         app:boxStrokeColor="@color/colorPrimary"
         app:errorEnabled="true"
         app:hintTextColor="@color/colorPrimary"
-        app:layout_constraintBottom_toTopOf="@+id/outlined_date_end"
+        app:layout_constraintBottom_toTopOf="@+id/outlined_age"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/outlined_universityname"
+        app:layout_constraintTop_toBottomOf="@+id/outlined_username"
         app:layout_constraintVertical_bias="1.0"
         app:startIconDrawable="@drawable/ic_baseline_email_24"
         app:startIconTint="@color/colorPrimary">
@@ -90,7 +90,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
 
-        android:id="@+id/outlined_date_end"
+        android:id="@+id/outlined_age"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -107,7 +107,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/outlined_universityaddress"
+        app:layout_constraintTop_toBottomOf="@+id/outlined_email"
         app:startIconDrawable="@drawable/ic_baseline_calendar_today_24"
         app:startIconTint="@color/colorPrimary">
 
@@ -136,7 +136,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/outlined_date_end">
+        app:layout_constraintTop_toBottomOf="@+id/outlined_age">
 
         <TextView
             android:id="@+id/Gender"
@@ -181,7 +181,7 @@
     </RelativeLayout>
 
     <Button
-        android:id="@+id/save"
+        android:id="@+id/next"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
