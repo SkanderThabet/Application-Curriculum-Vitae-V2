@@ -23,7 +23,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
 
-        android:id="@+id/outlined_companyname"
+        android:id="@+id/outlined_universityname"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
         app:boxStrokeColor="@color/colorPrimary"
         app:errorEnabled="true"
         app:hintTextColor="@color/colorPrimary"
-        app:layout_constraintBottom_toTopOf="@+id/outlined_companyaddress"
+        app:layout_constraintBottom_toTopOf="@+id/outlined_universityaddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,7 +56,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
 
-        android:id="@+id/outlined_companyaddress"
+        android:id="@+id/outlined_universityaddress"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -71,12 +71,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/outlined_companyname"
+        app:layout_constraintTop_toBottomOf="@+id/outlined_universityname"
         app:startIconDrawable="@drawable/ic_baseline_add_location_24"
         app:startIconTint="@color/colorPrimary">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/companyAddressInput"
+            android:id="@+id/universityAddressInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textWebEmailAddress"
@@ -86,7 +86,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
 
-        android:id="@+id/outlined_date_start"
+        android:id="@+id/outlined_date_start_ed"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -101,12 +101,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/outlined_companyaddress"
+        app:layout_constraintTop_toBottomOf="@+id/outlined_universityaddress"
         app:startIconDrawable="@drawable/ic_baseline_calendar_today_24"
         app:startIconTint="@color/colorPrimary">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/startDateInput"
+            android:id="@+id/startDateInput_ed"
             android:layout_width="match_parent"
 
 
@@ -135,13 +135,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/outlined_date_start"
+        app:layout_constraintTop_toBottomOf="@+id/outlined_date_start_ed"
         app:layout_constraintVertical_bias="0.04"
         app:startIconDrawable="@drawable/ic_baseline_calendar_today_24"
         app:startIconTint="@color/colorPrimary">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/endDateInput"
+            android:id="@+id/endDateInput_ed"
             android:layout_width="match_parent"
 
 
@@ -158,7 +158,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:backgroundTint="@color/colorPrimary"
-        android:text="NEXT"
+        android:text="SAVE"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

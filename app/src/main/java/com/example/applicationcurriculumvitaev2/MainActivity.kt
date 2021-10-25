@@ -17,9 +17,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 //Scrollview pour assurer la comptabilité des composants sur tout l'écran
         val name = findViewById<TextView>(R.id.NameInput)
-        val outlineName = findViewById<TextInputLayout>(R.id.outlined_companyname)
+        val outlineName = findViewById<TextInputLayout>(R.id.outlined_universityname)
         val email = findViewById<TextView>(R.id.emailInput)
-        val outlineEmail = findViewById<TextInputLayout>(R.id.outlined_companyaddress)
+        val outlineEmail = findViewById<TextInputLayout>(R.id.outlined_universityaddress)
         val age = findViewById<TextView>(R.id.ageInput)
         val outlineAge = findViewById<TextInputLayout>(R.id.outlined_date_end)
         val next = findViewById<Button>(R.id.save)

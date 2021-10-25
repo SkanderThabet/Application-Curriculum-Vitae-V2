@@ -38,8 +38,8 @@ class experience : Fragment() {
         val view:View = inflater.inflate(R.layout.fragment_experience, container, false)
         val recyclverView = view.findViewById<RecyclerView>(R.id.recyclerViewExperience)
         recyclerExperienceAdapter = AdapterExperience(gen)
-        recyclverView.adapter = recyclerExperienceAdapter
         recyclverView.layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.VERTICAL, false)
+        recyclverView.adapter = recyclerExperienceAdapter
 
         return view
     }

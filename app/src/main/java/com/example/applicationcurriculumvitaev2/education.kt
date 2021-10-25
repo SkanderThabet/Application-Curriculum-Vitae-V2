@@ -36,8 +36,9 @@ class education : Fragment() {
         val view = inflater.inflate(R.layout.fragment_education, container, false)
         val recyclerViewEducation = view.findViewById<RecyclerView>(R.id.recyclerViewEducation)
         recyclerViewEducationAdapter= AdapterEducation(gen)
-        recyclerViewEducation.adapter= recyclerViewEducationAdapter
         recyclerViewEducation.layoutManager=LinearLayoutManager(this.context,LinearLayoutManager.VERTICAL,false)
+        recyclerViewEducation.adapter= recyclerViewEducationAdapter
+
         return view
     }
 
