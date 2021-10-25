@@ -10,7 +10,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
+import androidx.core.widget.doOnTextChanged
 import com.google.android.material.datepicker.MaterialDatePicker
+import com.google.android.material.textfield.TextInputLayout
 
 class add_experience : AppCompatActivity() {
     private var uri: Uri? = null
@@ -18,16 +20,45 @@ class add_experience : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_experience)
 
+        /**
+         * Toolbar
+         */
         val toolbar = findViewById<Toolbar>(R.id.toolbarexp)
         setSupportActionBar(toolbar)
 
         toolbar.setNavigationOnClickListener {
             onBackPressed()
         }
+
         /**
          * Init
          */
         val companyname = findViewById<TextView>(R.id.companyNameInput)
+        val outlinecompanyname = findViewById<TextInputLayout>(R.id.outlined_companyname)
+        val companyaddr = findViewById<TextView>(R.id.companyAddressInput)
+        val outlinecompanyaddr = findViewById<TextInputLayout>(R.id.outlined_companyaddress)
+        val savebtn = findViewById<Button>(R.id.save)
+        val outlinedatestart = findViewById<TextInputLayout>(R.id.outlined_date_start_ex)
+        val outlinedateend = findViewById<TextInputLayout>(R.id.outlined_date_end_ex)
+
+        companyname.doOnTextChanged { text, start, before, count ->
+            if (text!!.isEmpty()) {
+                outlinecompanyname.error = "Must not be empty"
+                savebtn.isEnabled = false
+            } else {
+                outlinecompanyname.error = null
+                savebtn.isEnabled = !(companyaddr.text.isEmpty())
+            }
+        }
+        companyaddr.doOnTextChanged { text, start, before, count ->
+            if (text!!.isEmpty()) {
+                outlinecompanyaddr.error = "Must not be empty"
+                savebtn.isEnabled = false
+            } else {
+                outlinecompanyaddr.error = null
+                savebtn.isEnabled = !(companyname.text.isEmpty())
+            }
+        }
 
         /**
          * DatePicker Start
@@ -56,6 +87,15 @@ class add_experience : AppCompatActivity() {
         datePicker_start.addOnPositiveButtonClickListener {
             startdate.text = datePicker_start.headerText
         }
+        datePicker_start.addOnCancelListener {
+            if (datePicker_start.headerText.isEmpty()) {
+                savebtn.isEnabled = false
+                outlinedatestart.error = "Must not be empty"
+            } else {
+                savebtn.isEnabled
+                outlinedatestart.error = null
+            }
+        }
 
         /**
          * Datapicker End
@@ -83,6 +123,16 @@ class add_experience : AppCompatActivity() {
         datePicker_end.addOnPositiveButtonClickListener {
             enddate.text = datePicker_end.headerText
         }
+        datePicker_end.addOnCancelListener {
+            if (datePicker_end.headerText.isEmpty()) {
+                savebtn.isEnabled = false
+                outlinedateend.error = "Must not be empty"
+            } else {
+                savebtn.isEnabled
+                outlinedateend.error = null
+            }
+        }
+
         /**
          * Image View init & on click listener event
          */
