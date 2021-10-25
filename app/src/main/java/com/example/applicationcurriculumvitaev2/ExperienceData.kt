@@ -2,21 +2,34 @@ package com.example.applicationcurriculumvitaev2
 
 import android.widget.ImageView
 import androidx.annotation.DrawableRes
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import java.nio.file.Files.size
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.random.Random
-
+@Entity(tableName = "experiences")
 data class ExperienceData(
+    @PrimaryKey(autoGenerate = true)
+    val id:Int,
+    @ColumnInfo(name = "exp_name")
     val companyname: String,
     @DrawableRes
+    @ColumnInfo(name = "exp_pic")
     val companyimage: Int,
+    @ColumnInfo(name = "exp_add")
     val companyaddress: String,
+    @ColumnInfo(name="exp_content")
     val companycontent: String,
+    @ColumnInfo(name = "exp_start_date")
     val companystartdate: String,
+    @ColumnInfo(name = "exp_end_date")
     val companyenddate: String
 ) {
     companion object {
+        @JvmField
+        val C_ID=0
         @JvmField
         val C_NAMES = arrayOf("AMAZON", "FACEBOOK", "LINKEDIN", "GOOGLE", "MICROSOFT", "ESPRIT")
 
@@ -66,6 +79,7 @@ data class ExperienceData(
             for (i in 1..n) {
                 experienceArray.add(
                     ExperienceData(
+                        C_ID,
                         C_NAMES[Random.nextInt(C_NAMES.size)],
                         C_IMAGES[Random.nextInt(C_IMAGES.size)],
                         C_ADDRESS[Random.nextInt(C_ADDRESS.size)],

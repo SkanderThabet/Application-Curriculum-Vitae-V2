@@ -2,6 +2,7 @@ package com.example.applicationcurriculumvitaev2
 
 import android.content.DialogInterface
 import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.Bitmap
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -152,6 +153,11 @@ class ResultActivity : AppCompatActivity() {
         val bundle = intent.getBundleExtra("bundle")
 
         /**
+         * Get Shared preference
+         */
+        val sh:SharedPreferences = this.applicationContext.getSharedPreferences(PREF,
+            MODE_PRIVATE)
+        /**
          * Bundle strings
          */
         val nameBundle = bundle?.getString("Name")
@@ -173,6 +179,7 @@ class ResultActivity : AppCompatActivity() {
                 builder.setPositiveButton(
                     "Yes",
                     DialogInterface.OnClickListener { dialogInterface, i ->
+                        sh.edit().clear().apply()
                         finish()
                         dialogInterface.cancel()
                     })

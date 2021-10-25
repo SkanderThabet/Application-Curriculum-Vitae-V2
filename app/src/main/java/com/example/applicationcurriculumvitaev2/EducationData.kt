@@ -1,18 +1,32 @@
 package com.example.applicationcurriculumvitaev2
 
 import androidx.annotation.DrawableRes
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import kotlin.random.Random
 
+@Entity(tableName = "educations")
 data class EducationData
     (
+    @PrimaryKey(autoGenerate = true)
+    val id:Int,
+    @ColumnInfo(name="edu_name")
     val companyname_ed: String,
     @DrawableRes
+    @ColumnInfo(name="edu_pic")
     val companyimage_ed: Int,
+    @ColumnInfo(name="edu_add")
     val companyaddress_ed: String,
+    @ColumnInfo(name="edu_start_date")
     val companystartdate_ed: String,
+    @ColumnInfo(name="edu_end_date")
     val companyenddate_ed: String
 ) {
     companion object {
+        @JvmField
+        val C_ID:Int = 0
+
         @JvmField
         val C_NAMES = arrayOf("ESPRIT", "CAMBRIDGE", "HARVARD", "MASSACHUSETTS", "OXFORD", "STANFORD")
 
@@ -51,6 +65,7 @@ data class EducationData
             for (i in 1..n) {
                 educationArray.add(
                     EducationData(
+                        C_ID,
                         C_NAMES[Random.nextInt(C_NAMES.size)],
                         C_IMAGES[Random.nextInt(C_IMAGES.size)],
                         C_ADDRESS[Random.nextInt(C_ADDRESS.size)],
