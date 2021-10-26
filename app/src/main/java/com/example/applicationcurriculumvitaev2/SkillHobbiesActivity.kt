@@ -132,6 +132,7 @@ class SkillHobbiesActivity : AppCompatActivity() {
                     putBoolean(ENGLISH,english.isChecked)
                     putBoolean(FRENCH,french.isChecked)
                     putBoolean(ARABIC,arabic.isChecked)
+                    putString("Image",image)
                 }.apply()
                 /**
                  * Log sharedpref to verify if entries are going through or not !
